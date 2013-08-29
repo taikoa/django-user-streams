@@ -49,6 +49,9 @@ def add_stream_item(user_or_users, content, created_at=None):
     """
     Add a single message to the stream of one or more users.
     """
+    if not user_or_users:
+        return None
+
     backend = get_backend()
     users = create_iterable(user_or_users)
     created_at = created_at or datetime_now()
